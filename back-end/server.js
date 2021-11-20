@@ -18,6 +18,34 @@ mongoose.connect('mongodb://127.0.0.1:27017/photobomb', {
   useNewUrlParser: true
 });
 
+// Create a scheme for items in the museum: a title and a path to an image.
+const heirSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  email: String,
+  properties: Array
+});
+
+// Create a model for items in the museum.
+const Heir = mongoose.model('Heir', heirSchema);
+
+app.post('/api/heir', (req, res) => {
+  const heir = new Heir({
+    firstName: req.body.title,
+    lastName:req.body.description,
+    email: req.body.path,
+    properties: []
+  });
+  properties.push(req.body.properties)
+  
+  try {
+    await heir.save();
+    res.send(heir);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+})
 
 
 app.listen(3000, () => console.log('Server listening on port 3000!'));
