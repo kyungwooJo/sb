@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <Navbar />
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/form">Form</router-link>
@@ -8,6 +9,28 @@
     <router-view/>
   </div>
 </template>
+
+<script>
+import Navbar from "./components/NavBar.vue"
+export default {
+  name: 'Admin',
+  data() {
+   return {
+     title: "",
+     description: "",
+     items: [],
+     findTitle: "",
+     findDescription: "",
+     findItem: null,
+     file: null,
+     addItem: null,
+    }
+  },
+  components: {
+    Navbar
+  },
+}
+</script>
 
 <style>
 #app {

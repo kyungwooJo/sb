@@ -17,16 +17,22 @@
 
 <script>
 // @ is an alias to /src
-
 export default {
   name: 'Home',
   components: {
-  }
+  },
 }
 </script>
 
 <style>
     .form{
-        margin: 20px 
+        margin: 20px; 
+        width: 200px;
+        height: 30px;
+    }
+
+    button {
+        width: 100px;
+        height: 30px;
     }
 </style>
