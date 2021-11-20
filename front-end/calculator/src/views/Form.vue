@@ -1,26 +1,37 @@
 <template>
 <div>
-  <input class="form" placeholder="heir's firstName">
-  <br>
-  <input class="form" placeholder="heir's lastName">
-  <br>
-  <input class="form" placeholder="heir's email">
-  <br>
-  <input class="form" placeholder="Property Type">
-  <br>
-  <input class="form" placeholder="Property sentimental Value">
-  <br>
-  <button type="button">Submit</button>
+    <div v-for="i in heirCount" :key="i.id">
+    <FormInfo />
+    </div>
 </div>
-
 </template>
 
 <script>
 // @ is an alias to /src
+import FormInfo from "../components/FormInfo.vue"
 export default {
   name: 'Home',
-  components: {
+  data() {
+    return {
+     heirId: 2,
+     heirCount:[{id:1}],
+
+    }
   },
+
+  components: {
+    FormInfo
+  },
+  methods: {
+    
+  },
+
+  computed: {
+      addHeir(){
+        return this.heirCount
+      }
+  }
+  
 }
 </script>
 
@@ -34,5 +45,11 @@ export default {
     button {
         width: 100px;
         height: 30px;
+    }
+
+    .formContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
